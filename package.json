@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --bail",
     "eject": "react-scripts eject",
-    "coverage": "npx react-scripts test --coverage --watchAll"
+    "coverage": "npx react-scripts test --coverage --watchAll",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -65,13 +66,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-    },
-    "lint-staged": {
-      "*.ts?(x)": [
-        "npm run test",
-        "git add"
-      ]
     }
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "npm run test"
+    ]
   },
   "devDependencies": {
     "husky": "^8.0.3",
