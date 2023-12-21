@@ -5,7 +5,6 @@ import { blackTheme, customTheme } from "../const";
 describe("useTheme", () => {
   test("should render the initial theme", () => {
     const { result } = renderHook(useTheme);
-    console.log(result);
     expect(result.current.theme).toBe(customTheme.light);
   });
   test("toggleTheme should change theme", () => {
