@@ -1,27 +1,28 @@
-import { screen } from "@testing-library/react";
-import App from "./App";
-import { render } from "./test-utils";
-import user from "@testing-library/user-event";
+import { screen } from '@testing-library/react';
+import user from '@testing-library/user-event';
 
-describe("App elements displays correctly", () => {
-  test("switch button renders in document", () => {
+import { render } from './test-utils';
+import App from './App';
+
+describe('App elements displays correctly', () => {
+  test('switch button renders in document', () => {
     render(<App />);
-    const switcherButton = screen.getByRole("checkbox", {
-      name: "enable dark mode",
+    const switcherButton = screen.getByRole('checkbox', {
+      name: 'enable dark mode',
     });
     expect(switcherButton).toBeInTheDocument();
   });
 });
 
-describe("Switch app modes", () => {
-  test("switch button change background color", async () => {
+describe('Switch app modes', () => {
+  test('switch button change background color', async () => {
     render(<App />);
-    const switcherButton = screen.getByRole("checkbox", {
-      name: "enable dark mode",
+    const switcherButton = screen.getByRole('checkbox', {
+      name: 'enable dark mode',
     });
 
     await user.click(switcherButton);
-    const backgroundElement = screen.getAllByTestId("app");
+    const backgroundElement = screen.getAllByTestId('app');
 
     const oneTimesClickedStyles = `
       background-color: #rgba(0, 0, 0, 0);

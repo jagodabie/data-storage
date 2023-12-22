@@ -2,10 +2,11 @@ import { useState } from "react";
 import { StyledListItem, StyledNav } from ".";
 
 type NavigationProps = {
-  toggleButton?: JSX.Element;
+  // eslint-disable-next-line no-undef
+  toggleButton: JSX.Element;
 };
 
-const Navigation = ({ toggleButton }: NavigationProps) => {
+function Navigation({ toggleButton }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleHamburgerClick = () => {
@@ -14,9 +15,13 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
   return (
     <StyledNav open={isMenuOpen}>
       {toggleButton}
-      <StyledListItem></StyledListItem>
+      {/* TODO: do real Hamburger */}
+      <button onClick={handleHamburgerClick} type="button">
+        hamburger
+      </button>
+      <StyledListItem />
     </StyledNav>
   );
-};
+}
 
 export default Navigation;

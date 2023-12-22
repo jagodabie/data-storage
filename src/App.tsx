@@ -1,12 +1,12 @@
-import { GlobalStyle } from "./globals/GlobalStyles";
-import useTheme from "./hooks/useTheme";
-import { Switch } from "@mui/material";
-import { AppProviders } from "./providers/AppProviders";
-import { customTheme } from "./const";
-import { StyledDarkModeIcon, StyledLightModeIcon } from ".";
-import Navigation from "./components/Navigation/Navigation";
+import { Switch } from '@mui/material';
+import { GlobalStyle } from './globals/GlobalStyles';
+import useTheme from './hooks/useTheme';
+import { AppProviders } from './providers/AppProviders';
+import { customTheme } from './const';
+import { StyledDarkModeIcon, StyledLightModeIcon } from '.';
+import Navigation from './components/Navigation/Navigation';
 
-const App = () => {
+function App() {
   const { theme, toggleTheme, themesStyles } = useTheme();
 
   return (
@@ -14,19 +14,19 @@ const App = () => {
       <GlobalStyle />
       <div className="App" data-testid="app">
         <Navigation
-          toggleButton={
+          toggleButton={(
             <Switch
               checked={customTheme.dark === theme}
               onChange={toggleTheme}
-              inputProps={{ "aria-label": "enable dark mode" }}
+              inputProps={{ 'aria-label': 'enable dark mode' }}
               icon={<StyledLightModeIcon />}
               checkedIcon={<StyledDarkModeIcon />}
             />
-          }
+          )}
         />
       </div>
     </AppProviders>
   );
-};
+}
 
 export default App;

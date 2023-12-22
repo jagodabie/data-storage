@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 type StyledComponentProps = {
   open?: boolean;
@@ -9,10 +9,8 @@ export const StyledNav = styled.nav<StyledComponentProps>`
   padding: 1rem 1rem 0 1rem;
   display: flex;
   justify-content: space-between;
-  border-bottom: ${(props) =>
-    props.open ? "none" : `1px solid ${props.theme.borders.color}`};
-  box-shadow: ${(props) =>
-    props.open ? "none" : " 0px 6px 6px -6px rgba(0, 0, 0, 0.5)"};
+  border-bottom: ${(props) => (props.open ? 'none' : `1px solid ${props.theme.borders.color}`)};
+  box-shadow: ${(props) => (props.open ? 'none' : ' 0px 6px 6px -6px rgba(0, 0, 0, 0.5)')};
 
   .mobile-only {
     display: none;
@@ -41,7 +39,7 @@ export const StyledList = styled.ul<StyledComponentProps>`
   padding: 0;
 
   @media (max-width: 768px) {
-    display: ${(props) => (props.open ? "flex" : "none")};
+    display: ${(props) => (props.open ? 'flex' : 'none')};
     flex-direction: column;
     width: 100%;
   }

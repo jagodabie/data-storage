@@ -1,29 +1,31 @@
-import { screen } from "@testing-library/react";
+import { screen } from '@testing-library/react';
 
-import { StyledList, StyledNav } from ".";
-import { ThemeProvider } from "styled-components";
-import { whiteTheme } from "../../const";
-import { render } from "../../test-utils";
-describe("Navigation", () => {
-  test("renders nav tag correctly", () => {
+import { ThemeProvider } from 'styled-components';
+
+import { whiteTheme } from '../../const';
+import { render } from '../../test-utils';
+import { StyledList, StyledNav } from '.';
+
+describe('Navigation', () => {
+  test('renders nav tag correctly', () => {
     render(
       <ThemeProvider theme={whiteTheme}>
         <StyledNav />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    const navigationElement = screen.getByRole("navigation");
+    const navigationElement = screen.getByRole('navigation');
     expect(navigationElement).toBeInTheDocument();
   });
-  test("renders ul tag correctly", () => {
+  test('renders ul tag correctly', () => {
     render(
       <ThemeProvider theme={whiteTheme}>
         <StyledNav>
-          <StyledList open={false}></StyledList>
+          <StyledList open={false} />
         </StyledNav>
-      </ThemeProvider>
+      </ThemeProvider>,
     );
-    const listElement = screen.getByRole("list");
+    const listElement = screen.getByRole('list');
     expect(listElement).toBeInTheDocument();
   });
-  test("renders li tags correctly", () => {});
+  test('renders li tags correctly', () => {});
 });
