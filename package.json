@@ -98,7 +98,7 @@
   "lint-staged": {
     "*.ts?(x)": [
       "npm run test",
-      "eslint --fix",
+      "npm run lint --fix",
       "git add"
     ]
   },
