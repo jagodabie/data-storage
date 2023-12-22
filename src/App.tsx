@@ -1,5 +1,5 @@
 import { Switch } from '@mui/material';
-import { GlobalStyle } from './globals/GlobalStyles';
+import GlobalStyle from './globals/GlobalStyles';
 import useTheme from './hooks/useTheme';
 import { AppProviders } from './providers/AppProviders';
 import { customTheme } from './const';
@@ -14,15 +14,17 @@ function App() {
       <GlobalStyle />
       <div className="App" data-testid="app">
         <Navigation
-          toggleButton={(
+          toggleButton={
             <Switch
               checked={customTheme.dark === theme}
               onChange={toggleTheme}
-              inputProps={{ 'aria-label': 'enable dark mode' }}
+              inputProps={{
+                'aria-label': 'enable dark mode',
+              }}
               icon={<StyledLightModeIcon />}
               checkedIcon={<StyledDarkModeIcon />}
             />
-          )}
+          }
         />
       </div>
     </AppProviders>
