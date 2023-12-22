@@ -25,4 +25,5 @@ describe("Navigation", () => {
     const listElement = screen.getByRole("list");
     expect(listElement).toBeInTheDocument();
   });
+  test("renders li tags correctly", () => {});
 });
