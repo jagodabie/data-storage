@@ -5,6 +5,7 @@ interface AppProvidersProps {
   theme: any;
 }
 
-export function AppProviders({ children, theme }: AppProvidersProps) {
+function AppProviders({ children, theme }: AppProvidersProps) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
+export default AppProviders;

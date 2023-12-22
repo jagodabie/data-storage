@@ -1,10 +1,11 @@
 import { Switch } from '@mui/material';
 import GlobalStyle from './globals/GlobalStyles';
 import useTheme from './hooks/useTheme';
-import { AppProviders } from './providers/AppProviders';
+import AppProviders from './providers/AppProviders';
 import { customTheme } from './const';
-import { StyledDarkModeIcon, StyledLightModeIcon } from '.';
+
 import Navigation from './components/Navigation/Navigation';
+import { StyledDarkModeIcon, StyledLightModeIcon } from '.';
 
 function App() {
   const { theme, toggleTheme, themesStyles } = useTheme();
