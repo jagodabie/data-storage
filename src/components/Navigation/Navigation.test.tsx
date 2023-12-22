@@ -11,7 +11,7 @@ describe('Navigation', () => {
     render(
       <ThemeProvider theme={whiteTheme}>
         <StyledNav />
-      </ThemeProvider>,
+      </ThemeProvider>
     );
     const navigationElement = screen.getByRole('navigation');
     expect(navigationElement).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('Navigation', () => {
         <StyledNav>
           <StyledList open={false} />
         </StyledNav>
-      </ThemeProvider>,
+      </ThemeProvider>
     );
     const listElement = screen.getByRole('list');
     expect(listElement).toBeInTheDocument();

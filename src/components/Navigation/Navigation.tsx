@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { StyledListItem, StyledNav } from ".";
+import { useState } from 'react';
+import { StyledListItem, StyledNav } from '.';
 
 type NavigationProps = {
   // eslint-disable-next-line no-undef
