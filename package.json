@@ -28,13 +28,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --bail",
     "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
     "coverage": "npx react-scripts test --coverage --watchAll",
     "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "airbnb"
     ]
   },
   "browserslist": {
@@ -71,7 +73,9 @@
   },
   "lint-staged": {
     "*.ts?(x)": [
-      "npm run test"
+      "npm run test",
+      "eslint --fix",
+      "git add"
     ]
   },
   "devDependencies": {
