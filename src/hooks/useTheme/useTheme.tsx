@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { blackTheme, customTheme, whiteTheme } from '../const';
+import { blackTheme, customTheme, whiteTheme } from '../../const';
 
 type Theme = 'light' | 'dark';
 type UseTheme = {

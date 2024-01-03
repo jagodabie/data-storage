@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
+
+import { blackTheme, customTheme } from '../../const';
 import useTheme from './useTheme';
-import { blackTheme, customTheme } from '../const';
 
 describe('useTheme', () => {
   test('should render the initial theme', () => {
