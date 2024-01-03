@@ -1,13 +1,31 @@
 import { Switch } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import styled from 'styled-components';
 import GlobalStyle from './globals/GlobalStyles';
 import useTheme from './hooks/useTheme';
 import AppProviders from './providers/AppProviders';
 import { customTheme } from './const';
 
+import HomeView from './pages/HomeView';
 import Navigation from './components/Navigation/Navigation';
-import { StyledDarkModeIcon, StyledLightModeIcon } from '.';
 
-function App() {
+export const StyledDarkModeIcon = styled(DarkModeIcon)`
+  &.MuiSvgIcon-root {
+    font-size: 1em;
+    margin: 2px 0 0;
+  }
+`;
+
+export const StyledLightModeIcon = styled(LightModeIcon)`
+  &.MuiSvgIcon-root {
+    font-size: 0.85em;
+    margin: 3px 0 0 4px;
+  }
+`;
+
+const App = () => {
   const { theme, toggleTheme, themesStyles } = useTheme();
 
   return (
@@ -27,9 +45,12 @@ function App() {
             />
           }
         />
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+        </Routes>
       </div>
     </AppProviders>
   );
-}
+};
 
 export default App;
