@@ -5,7 +5,7 @@ interface AppProvidersProps {
   theme: any;
 }
 
-function AppProviders({ children, theme }: AppProvidersProps) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
+const AppProviders = ({ children, theme }: AppProvidersProps) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
 export default AppProviders;

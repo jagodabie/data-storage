@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import AppProviders from './providers/AppProviders';
 
 const defaultTheme = {};
@@ -9,14 +10,13 @@ interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
 }
 
 const customRender = (ui: ReactElement, options?: CustomRenderOptions) => {
-  // Create a wrapper that will provide the theme to the components
-  function Wrapper({ children }: { children: ReactNode }) {
-    return (
+  const Wrapper = ({ children }: { children: ReactNode }) => (
+    <MemoryRouter>
       <AppProviders theme={options?.theme || defaultTheme}>
         {children}
       </AppProviders>
-    );
-  }
+    </MemoryRouter>
+  );
 
   return render(ui, { wrapper: Wrapper, ...options });
 };
