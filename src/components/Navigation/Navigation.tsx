@@ -23,7 +23,7 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
   const { isMobile } = useScreenSize();
 
   return (
-    <StyledNav open={isMenuOpen}>
+    <StyledNav open={isMenuOpen} isMobile={isMobile}>
       {isMobile && (
         <div>
           <HamburgerIcon
