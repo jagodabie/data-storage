@@ -42,7 +42,7 @@ describe('Navigation mobile value', () => {
       expect(hamburgerButton).toBeInTheDocument();
     });
 
-    test('should display hamburger icon when widt', () => {
+    test('should display hamburger icon when width', () => {
       mockNavigationSetup(765);
       const hamburgerButton = screen.getByTestId('mobile-menu');
       expect(hamburgerButton).toBeInTheDocument();

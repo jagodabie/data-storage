@@ -25,7 +25,7 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
   return (
     <StyledNav open={isMenuOpen}>
       {isMobile && (
-        <>
+        <div>
           <HamburgerIcon
             onClick={handleHamburgerClick}
             aria-label="Open menu"
@@ -45,8 +45,9 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
             )}
           </HamburgerIcon>
           {toggleButton}
-        </>
+        </div>
       )}
+      {/* // TODO In further make navigation routes dynamic */}
       <StyledList open={isMenuOpen}>
         <StyledListItem>
           <StyledLink to="/">Home</StyledLink>
