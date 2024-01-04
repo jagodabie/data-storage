@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { StyledNav, StyledList, StyledListItem, StyledLink } from '.';
+import {
+  StyledNav,
+  StyledList,
+  StyledListItem,
+  StyledLink,
+  CloseIcon,
+  HamburgerIcon,
+} from '.';
+import useScreenSize from '../../hooks/useScreenSize/useScreenSize';
 
 type NavigationProps = {
   // eslint-disable-next-line no-undef
@@ -10,21 +18,41 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleHamburgerClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(prevState => !prevState);
   };
+  const { isMobile } = useScreenSize();
+
   return (
     <StyledNav open={isMenuOpen}>
-      {toggleButton}
-      {/* TODO: do real Hamburger */}
-      <button onClick={handleHamburgerClick} type="button">
-        hamburger
-      </button>
-      {/* TODO: Dynamic navigation */}
-      <StyledList>
+      {isMobile && (
+        <>
+          <HamburgerIcon
+            onClick={handleHamburgerClick}
+            aria-label="Open menu"
+            role="menu"
+            data-testid="mobile-menu"
+          >
+            {isMenuOpen ? (
+              <CloseIcon aria-label="Close menu" data-testid="close-menu">
+                &times;
+              </CloseIcon>
+            ) : (
+              <>
+                <span aria-hidden="true" />
+                <span aria-hidden="true" />
+                <span aria-hidden="true" />
+              </>
+            )}
+          </HamburgerIcon>
+          {toggleButton}
+        </>
+      )}
+      <StyledList open={isMenuOpen}>
         <StyledListItem>
           <StyledLink to="/">Home</StyledLink>
         </StyledListItem>
       </StyledList>
+      {!isMobile && toggleButton}
     </StyledNav>
   );
 };

@@ -22,19 +22,19 @@ describe('Switch app modes', () => {
     });
 
     await user.click(switcherButton);
-    const backgroundElement = screen.getAllByTestId('app');
+    const backgroundElement = screen.getByTestId('app');
 
     const oneTimesClickedStyles = `
       background-color: #rgba(0, 0, 0, 0);
       color: #rgba(64, 64, 64, 0.9)`;
 
-    expect(backgroundElement[0]).toHaveStyle(oneTimesClickedStyles);
+    expect(backgroundElement).toHaveStyle(oneTimesClickedStyles);
 
     const twoTimesClickedStyles = `
       background-color: #rgb(255, 255, 255)
       color: #rgba(0, 0, 0, 0)`;
 
     await user.click(switcherButton);
-    expect(backgroundElement[0]).toHaveStyle(twoTimesClickedStyles);
+    expect(backgroundElement).toHaveStyle(twoTimesClickedStyles);
   });
 });

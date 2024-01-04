@@ -4,7 +4,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import styled from 'styled-components';
 import GlobalStyle from './globals/GlobalStyles';
-import useTheme from './hooks/useTheme';
+import useTheme from './hooks/useTheme/useTheme';
 import AppProviders from './providers/AppProviders';
 import { customTheme } from './const';
 
