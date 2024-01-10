@@ -42,7 +42,7 @@ describe('Navigation mobile value', () => {
       expect(hamburgerButton).toBeInTheDocument();
     });
 
-    test('should display hamburger icon when width', () => {
+    test('should display hamburger icon when width is smaller the 768px', () => {
       mockNavigationSetup(765);
       const hamburgerButton = screen.getByTestId('mobile-menu');
       expect(hamburgerButton).toBeInTheDocument();
@@ -62,14 +62,14 @@ describe('Navigation mobile value', () => {
       await user.click(hamburgerButton);
       expect(closeButton).not.toBeInTheDocument();
     });
-    test('pass toggle button to navigation and renders correctly', () => {
+    test('Passed toggle button to navigation and renders correctly', () => {
       mockNavigationSetup(1024);
       const switchElement = screen.getByRole('checkbox', {
         name: 'enable dark mode test',
       });
       expect(switchElement).toBeInTheDocument();
     });
-    test('click on toggle switch button', async () => {
+    test('Enable dark mode if switcher is clicked', async () => {
       mockNavigationSetup(1024);
       const switchElement = screen.getByRole('checkbox', {
         name: 'enable dark mode test',
