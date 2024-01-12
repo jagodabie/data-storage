@@ -1,24 +1,14 @@
 {
-  "name": "twoja-aplikacja-fullstackowa",
+  "name": "follow-yourself",
   "version": "1.0.0",
+  "description": "",
   "scripts": {
-    "start": "react-scripts start",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts?(x)": [
-      "npm run test",
-      "npm run lint --fix",
-      "git add"
-    ]
+    "prepare": "husky install",
+    "lint-client": "eslint 'client/'",
+    "lint-server": "eslint 'server/'",
+    "precommit": "npm run lint-client && npm run lint-server"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0"
+    "husky": "^8.0.3"
   }
 }
