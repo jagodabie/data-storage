@@ -3,3 +3,4 @@
 
 #! TODO: add server 
 cd client && npm test -- --watchAll=false
+cd server && npm test 
