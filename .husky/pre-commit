@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-#! TODO: add server 
 cd client && npm test -- --watchAll=false
+cd ..
 cd server && npm test 
