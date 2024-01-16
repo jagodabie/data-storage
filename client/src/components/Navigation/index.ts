@@ -43,7 +43,6 @@ export const StyledList = styled.ul<StyledComponentProps>`
 `;
 
 export const StyledListItem = styled.li`
-  margin-right: 1rem;
   padding: 1rem;
   &:last-child {
     margin-right: 0;

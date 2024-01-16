@@ -17,6 +17,7 @@
     "@types/react-dom": "^18.2.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.3",
     "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.1",
@@ -37,7 +38,8 @@
       "react-app",
       "react-app/jest",
       "airbnb",
-      "prettier"
+      "prettier",
+      "plugin:react/recommended"
     ],
     "rules": {
       "react/react-in-jsx-scope": "off",
@@ -45,6 +47,7 @@
       "import/extensions": "off",
       "comma-dangle": "off",
       "no-undef": "warn",
+      "react/prop-types": "off",
       "quotes": [
         "error",
         "single",
