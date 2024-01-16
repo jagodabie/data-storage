@@ -10,6 +10,7 @@ import { customTheme } from './const';
 
 import HomeView from './pages/HomeView';
 import Navigation from './components/Navigation/Navigation';
+import FormConfigView from './pages/FormConfigView/FormConfigView';
 
 export const StyledDarkModeIcon = styled(DarkModeIcon)`
   &.MuiSvgIcon-root {
@@ -47,6 +48,7 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<HomeView />} />
+          <Route path="/form-config" element={<FormConfigView />} />
         </Routes>
       </div>
     </AppProviders>

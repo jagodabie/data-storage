@@ -52,6 +52,9 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
         <StyledListItem>
           <StyledLink to="/">Home</StyledLink>
         </StyledListItem>
+        <StyledListItem>
+          <StyledLink to="/form-config">Form Configuration</StyledLink>
+        </StyledListItem>
       </StyledList>
       {!isMobile && toggleButton}
     </StyledNav>
