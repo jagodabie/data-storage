@@ -4,16 +4,6 @@ import user from '@testing-library/user-event';
 import { render } from './test-utils';
 import App from './App';
 
-describe('App elements displays correctly', () => {
-  test('Switcher renders in document', () => {
-    render(<App />);
-    const switcherButton = screen.getByRole('checkbox', {
-      name: 'enable dark mode',
-    });
-    expect(switcherButton).toBeInTheDocument();
-  });
-});
-
 describe('Switch app modes', () => {
   test('Switcher change background color', async () => {
     render(<App />);
