@@ -93,8 +93,19 @@ describe('Navigation mobile value', () => {
     });
     test('renders li tag correctly', () => {
       mockNavigationSetup(1024);
-      const listElement = screen.getByRole('listitem');
-      expect(listElement).toBeInTheDocument();
+      const listElement = screen.getAllByRole('listitem');
+      expect(listElement).toHaveLength(2);
+    });
+    test('should display "Home" text in li tag correctly', () => {
+      mockNavigationSetup(1024);
+      const homeLinkText = screen.getByText('Home');
+      expect(homeLinkText).toBeInTheDocument();
+    });
+
+    test('should display "Form Configuration" text in li tag correctly', () => {
+      mockNavigationSetup(1024);
+      const formConfigLinkText = screen.getByText('Form Configuration');
+      expect(formConfigLinkText).toBeInTheDocument();
     });
   });
 });
