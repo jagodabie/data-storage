@@ -47,6 +47,7 @@
       "import/extensions": "off",
       "comma-dangle": "off",
       "no-undef": "warn",
+      "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
       "quotes": [
         "error",
