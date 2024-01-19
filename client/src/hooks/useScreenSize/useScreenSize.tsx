@@ -4,7 +4,7 @@ const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
-    isMobile: window.innerWidth <= 768,
+    mobile: window.innerWidth <= 768,
   });
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const useScreenSize = () => {
       setScreenSize({
         width: window.innerWidth,
         height: window.innerHeight,
-        isMobile: window.innerWidth <= 768,
+        mobile: window.innerWidth <= 768,
       });
     };
 

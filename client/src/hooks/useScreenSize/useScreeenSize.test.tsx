@@ -15,10 +15,10 @@ describe('useScreenSize hook', () => {
 
     expect(result.current.width).toBe(1024);
     expect(result.current.height).toBe(768);
-    expect(result.current.isMobile).toBe(false);
+    expect(result.current.mobile).toBe(false);
   });
 
-  it('should update the size and isMobile when the window is resized to a smaller screen', () => {
+  it('should update the size and mobile when the window is resized to a smaller screen', () => {
     window.innerWidth = 600;
     window.innerHeight = 800; // Simulate a resize event
     const event = new Event('resize');
@@ -28,10 +28,10 @@ describe('useScreenSize hook', () => {
 
     expect(result.current.width).toBe(600);
     expect(result.current.height).toBe(800);
-    expect(result.current.isMobile).toBe(true);
+    expect(result.current.mobile).toBe(true);
   });
 
-  it('should update the size and isMobile when the window is resized to a larger screen', () => {
+  it('should update the size and mobile when the window is resized to a larger screen', () => {
     window.innerWidth = 1200;
     window.innerHeight = 900; // Simulate another resize event
     const event = new Event('resize');
@@ -41,6 +41,6 @@ describe('useScreenSize hook', () => {
 
     expect(result.current.width).toBe(1200);
     expect(result.current.height).toBe(900);
-    expect(result.current.isMobile).toBe(false);
+    expect(result.current.mobile).toBe(false);
   });
 });

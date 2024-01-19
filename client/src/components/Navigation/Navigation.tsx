@@ -20,11 +20,11 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
   const handleHamburgerClick = () => {
     setIsMenuOpen(prevState => !prevState);
   };
-  const { isMobile } = useScreenSize();
+  const { mobile } = useScreenSize();
 
   return (
-    <StyledNav open={isMenuOpen} isMobile={isMobile}>
-      {isMobile && (
+    <StyledNav open={isMenuOpen} mobile={mobile}>
+      {mobile && (
         <div>
           <HamburgerIcon
             onClick={handleHamburgerClick}
@@ -56,7 +56,7 @@ const Navigation = ({ toggleButton }: NavigationProps) => {
           <StyledLink to="/form-config">Form Configuration</StyledLink>
         </StyledListItem>
       </StyledList>
-      {!isMobile && toggleButton}
+      {!mobile && toggleButton}
     </StyledNav>
   );
 };

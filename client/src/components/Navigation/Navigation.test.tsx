@@ -17,7 +17,7 @@ describe('Navigation mobile value', () => {
     useScreenSizeMock.mockImplementation(() => ({
       width,
       height: 800,
-      isMobile: width <= 768,
+      mobile: width <= 768,
     }));
 
     return render(

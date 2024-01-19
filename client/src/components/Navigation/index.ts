@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 type StyledComponentProps = {
   open?: boolean;
-  isMobile?: boolean;
+  mobile?: boolean;
 };
 
 export const StyledNav = styled.nav<StyledComponentProps>`
   padding: 1rem 1rem 0 1rem;
   display: flex;
   justify-content: space-between;
-  flex-direction: ${props => (props.isMobile ? 'column' : '')};
+  flex-direction: ${props => (props.mobile ? 'column' : '')};
   border-bottom: ${props =>
     props.open ? 'none' : `1px solid ${props.theme.borders.color}`};
   box-shadow: ${props =>
