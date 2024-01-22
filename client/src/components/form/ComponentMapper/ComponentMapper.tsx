@@ -5,6 +5,10 @@ import {
   Radio,
   MenuItem,
   FormControlLabel,
+  RadioGroup,
+  FormLabel,
+  InputLabel,
+  FormControl,
 } from '@mui/material';
 
 import { ComponentMapperProps } from './ComponentMapper.type';
@@ -16,6 +20,8 @@ const ComponentMapper = ({
   label,
   variant,
   onChange,
+  radiosValues,
+  options,
 }: ComponentMapperProps) => {
   switch (type) {
     case 'number':
@@ -44,44 +50,50 @@ const ComponentMapper = ({
       );
     case 'select':
       return (
-        <Select
-          value={value}
-          onChange={onChange}
-          name={name}
-          label={label}
-          variant={variant}
-          defaultValue={value}
-        >
-          <p>{label}</p>
-          <MenuItem value="option1">Option 1</MenuItem>
-          <MenuItem value="option2">Option 2</MenuItem>
-          <MenuItem value="option3">Option 3</MenuItem>
-        </Select>
+        <FormControl>
+          <InputLabel>test test</InputLabel>
+          <Select
+            value={value}
+            onChange={onChange}
+            name={name}
+            label={label}
+            variant={variant}
+          >
+            {options?.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       );
     case 'checkbox':
       return (
         <FormControlLabel
           control={
-            <Checkbox
-              checked={value as boolean}
-              onChange={onChange}
-              name={name}
-            />
+            <Checkbox checked={!!value} onChange={onChange} name={name} />
           }
           label={label}
         />
       );
     case 'radio':
       return (
-        <FormControlLabel
-          control={
-            <Radio checked={value as boolean} onChange={onChange} name={name} />
-          }
-          label={label}
-        />
+        <FormControl>
+          <FormLabel>{label}</FormLabel>
+          <RadioGroup name={name}>
+            {radiosValues?.map(radioValue => (
+              <FormControlLabel
+                key={radioValue}
+                value={radioValue}
+                control={<Radio />}
+                label={radioValue}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
       );
     default:
-      return <p>{name}</p>;
+      return <p aria-label={name}>{name}</p>;
   }
 };
 export default ComponentMapper;

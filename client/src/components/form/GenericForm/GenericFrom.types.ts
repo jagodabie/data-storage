@@ -7,6 +7,10 @@ export type fieldType =
   | 'checkbox'
   | 'radio'
   | '';
+export interface Option {
+  value: string;
+  label: string;
+}
 
 export interface FormsElementProps {
   label?: string;
@@ -20,6 +24,8 @@ export interface IFormField {
   type?: fieldType;
   variant?: string;
   label?: string;
+  radiosValues?: string[];
+  options?: Option[];
 }
 export interface IGenericFormProps {
   config: IFormField[];

@@ -1,5 +1,5 @@
 import { TextFieldVariants } from '@mui/material';
-import { fieldType } from '../GenericForm/GenericFrom.types';
+import { Option, fieldType } from '../GenericForm/GenericFrom.types';
 
 export interface FieldBaseProps {
   name: string;
@@ -11,4 +11,7 @@ export interface FieldBaseProps {
 }
 export interface ComponentMapperProps extends FieldBaseProps {
   type?: fieldType;
+  checked?: boolean;
+  radiosValues?: string[];
+  options?: Option[];
 }

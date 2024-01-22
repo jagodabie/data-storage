@@ -27,6 +27,8 @@ const GenericForm: React.FC<IGenericFormProps> = ({
                   label={configItem.label}
                   name={configItem.name}
                   type={configItem.type ?? ''}
+                  radiosValues={configItem.radiosValues ?? []}
+                  options={configItem.options ?? []}
                 />
               )}
               name={configItem.name}

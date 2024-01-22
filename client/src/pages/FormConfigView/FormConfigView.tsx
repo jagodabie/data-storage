@@ -27,6 +27,12 @@ const FormConfigView = () => (
             label: 'Select base',
             variant: 'standard',
             name: 'select-test',
+            options: [
+              { label: 'None', value: '' },
+              { label: 'Option 1', value: 'option1' },
+              { label: 'Option 2', value: 'option2' },
+              { label: 'Option 3', value: 'option3' },
+            ],
           },
           {
             type: 'checkbox',
@@ -37,6 +43,7 @@ const FormConfigView = () => (
             type: 'radio',
             label: 'radio',
             name: 'radio-test',
+            radiosValues: ['Option 1', 'Option 2', 'Option 3'],
           },
         ]}
       />

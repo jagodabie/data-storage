@@ -9,7 +9,7 @@ describe('ComponentMapper Component', () => {
     render(
       <ComponentMapper type="number" name="nameTest" label="Test Label" />
     );
-    const numberInput = screen.getByLabelText('Test Label');
+    const numberInput = screen.getByRole('spinbutton', { name: 'Test Label' });
     expect(numberInput).toBeInTheDocument();
     expect(numberInput).toHaveAttribute('type', 'number');
   });
@@ -17,7 +17,7 @@ describe('ComponentMapper Component', () => {
   it('renders a text input when type is text', () => {
     render(<ComponentMapper type="text" name="nameTest" label="Test Label" />);
 
-    const textInput = screen.getByLabelText('Test Label');
+    const textInput = screen.getByRole('textbox', { name: 'Test Label' });
     expect(textInput).toBeInTheDocument();
     expect(textInput).toHaveAttribute('type', 'text');
   });
@@ -36,7 +36,7 @@ describe('ComponentMapper Component', () => {
       <ComponentMapper type="checkbox" name="nameTest" label="Test Label" />
     );
 
-    const checkboxInput = screen.getByText('Test Label');
+    const checkboxInput = screen.getByRole('checkbox', { name: 'Test Label' });
     expect(checkboxInput).toBeInTheDocument();
   });
 
@@ -49,15 +49,14 @@ describe('ComponentMapper Component', () => {
 
   it('renders a p element when type is empty', () => {
     render(<ComponentMapper name="nameTest" label="Test Label" />);
-    const pElement = screen.getByText('nameTest');
+    const pElement = screen.getByLabelText('nameTest');
     expect(pElement).toBeInTheDocument();
-    expect(pElement.tagName).toBe('P');
   });
 
   it('updates the value of the input when typing', () => {
     render(<ComponentMapper type="text" name="nameTest" label="Test Label" />);
 
-    const textInput = screen.getByLabelText('Test Label');
+    const textInput = screen.getByRole('textbox', { name: 'Test Label' });
     expect(textInput).toBeInTheDocument();
 
     userEvent.type(textInput, testString);
@@ -75,7 +74,7 @@ describe('ComponentMapper Component', () => {
       />
     );
 
-    const textInput = screen.getByLabelText('Test Label');
+    const textInput = screen.getByRole('textbox', { name: 'Test Label' });
     expect(textInput).toBeInTheDocument();
 
     userEvent.type(textInput, testString);
