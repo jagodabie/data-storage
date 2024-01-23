@@ -49,16 +49,20 @@ const ComponentMapper = ({
         />
       );
     case 'select':
+      // TODO: manage display label based on value like foundName
       return (
-        <FormControl>
-          <InputLabel>test test</InputLabel>
+        <FormControl sx={{ m: 1, minWidth: 200 }}>
+          <InputLabel>{label}</InputLabel>
           <Select
             value={value}
             onChange={onChange}
             name={name}
-            label={label}
             variant={variant}
+            label="Selected"
           >
+            <MenuItem key="" value="">
+              None
+            </MenuItem>
             {options?.map(option => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}

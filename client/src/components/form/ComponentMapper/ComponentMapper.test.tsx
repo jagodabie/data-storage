@@ -30,6 +30,45 @@ describe('ComponentMapper Component', () => {
     const selectInput = screen.getByText('Test Label');
     expect(selectInput).toBeInTheDocument();
   });
+  it('renders a properly select with options when type is select and options are given', async () => {
+    render(
+      <ComponentMapper
+        type="select"
+        name="nameTest"
+        label="Test Label"
+        options={[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' },
+        ]}
+      />
+    );
+    const dropdownButton = screen.getByRole('combobox');
+    await userEvent.click(dropdownButton);
+
+    const dropdownItem = await screen.findByRole('option', {
+      name: 'Option 1',
+    });
+    const dropdownItems = screen.getAllByRole('option');
+    expect(dropdownItems).toHaveLength(4);
+
+    expect(dropdownItem).toBeInTheDocument();
+  });
+  it('renders a properly select with options when type is select and options are not given', async () => {
+    render(
+      <ComponentMapper type="select" name="nameTest" label="Test Label" />
+    );
+    const dropdownButton = screen.getByRole('combobox');
+    await userEvent.click(dropdownButton);
+
+    const dropdownItem = await screen.findByRole('option', {
+      name: 'None',
+    });
+    const dropdownItems = screen.getAllByRole('option');
+    expect(dropdownItems).toHaveLength(1);
+
+    expect(dropdownItem).toBeInTheDocument();
+  });
 
   it('renders a checkbox input when type is checkbox', () => {
     render(
