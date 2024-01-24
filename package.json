@@ -9,6 +9,7 @@
     "precommit": "npm run lint-client && npm run lint-server"
   },
   "devDependencies": {
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "workbox-webpack-plugin": "^7.0.0"
   }
 }
