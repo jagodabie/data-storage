@@ -14,4 +14,5 @@ export interface ComponentMapperProps extends FieldBaseProps {
   checked?: boolean;
   radiosValues?: string[];
   options?: Option[];
+  multiline?: boolean;
 }

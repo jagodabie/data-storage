@@ -22,6 +22,7 @@ const ComponentMapper = ({
   onChange,
   radiosValues,
   options,
+  multiline,
 }: ComponentMapperProps) => {
   switch (type) {
     case 'number':
@@ -46,6 +47,7 @@ const ComponentMapper = ({
           name={name}
           label={label}
           variant={variant}
+          multiline={multiline}
         />
       );
     case 'select':

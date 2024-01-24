@@ -26,6 +26,7 @@ export interface IFormField {
   label?: string;
   radiosValues?: string[];
   options?: Option[];
+  multiline?: boolean;
 }
 export interface IGenericFormProps {
   config: IFormField[];

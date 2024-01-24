@@ -1,9 +1,9 @@
-import React from 'react'; // Add this line
+import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import ComponentMapper from '../ComponentMapper/ComponentMapper';
 import { IGenericFormProps } from './GenericFrom.types';
+import { FormWrapper, Form } from '.';
 
-// eslint-disable-next-line no-undef
 const GenericForm: React.FC<IGenericFormProps> = ({
   saveButtonLabel = 'Save',
   config,
@@ -13,20 +13,21 @@ const GenericForm: React.FC<IGenericFormProps> = ({
   const { handleSubmit, control } = useForm();
 
   return (
-    <div className="form-wrapper">
-      {!!title && <h4>{title}</h4>}
+    <FormWrapper>
       {config?.length ? (
-        <form onSubmit={handleSubmit(data => onSubmit(data))}>
+        <Form onSubmit={handleSubmit(data => onSubmit(data))}>
+          {!!title && <h4>{title}</h4>}
           {config.map(configItem => (
             <Controller
               key={configItem.name}
               render={({ field: { onChange, value } }) => (
                 <ComponentMapper
                   onChange={onChange}
-                  value={value}
+                  value={value || ''}
                   label={configItem.label}
                   name={configItem.name}
                   type={configItem.type ?? ''}
+                  multiline={configItem?.multiline}
                   radiosValues={configItem.radiosValues ?? []}
                   options={configItem.options ?? []}
                 />
@@ -35,12 +36,13 @@ const GenericForm: React.FC<IGenericFormProps> = ({
               control={control}
             />
           ))}
+
           <button type="submit">{saveButtonLabel}</button>
-        </form>
+        </Form>
       ) : (
-        <p>Form not yet configured</p>
+        <p aria-label="Form not yet configured">Form not yet configured</p>
       )}
-    </div>
+    </FormWrapper>
   );
 };
 
