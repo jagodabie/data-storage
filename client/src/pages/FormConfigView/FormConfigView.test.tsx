@@ -6,7 +6,7 @@ describe('FormConfigView', () => {
   it('renders the heading with correct text', () => {
     render(<FormConfigView />);
 
-    const headingElement = screen.getByRole('heading', { level: 1 });
+    const headingElement = screen.getByRole('heading', { level: 4 });
     expect(headingElement).toBeInTheDocument();
     expect(headingElement).toHaveTextContent('Configure your form');
   });
