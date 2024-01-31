@@ -1,22 +1,14 @@
-import { Router } from 'express';
-import {  FormConfigs, TodoWithId } from './formConfig.model';
+import {  Router } from 'express';
+import * as FormConfigsController from './formConfigs.controllers';
+import { formConfig } from './formConfig.model';
+import { validateRequest } from '../../middlewares';
 
 const router = Router();
 
-router.get<{}, TodoWithId[]>('/', async (req, res) => {
-  const result = await FormConfigs.find();
-  const formConfigs = await result.toArray();
-  res.json(formConfigs);
-});
+router.get('/', FormConfigsController.findAll);
+router.post('/', validateRequest({
+  body: formConfig,
+}), FormConfigsController.createOne);
 
-
-
-// router.put('/:id', (req, res) => {
-
-// });
-
-// router.delete('/:id', (req, res) => {
-
-// });
 
 export default router;
