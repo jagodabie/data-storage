@@ -5,39 +5,36 @@ import GenericForm from './GenericForm';
 import { IFormField } from './GenericFrom.types';
 
 describe('GenericForm', () => {
-  const config: IFormField[] = [
-    {
-      name: 'firstName',
-      label: 'First Name',
-      type: 'text',
-    },
-    {
-      name: 'lastName',
-      label: 'Last Name',
-      type: 'text',
-    },
-    {
-      type: 'number',
-      label: 'Age',
-      name: 'age',
-    },
-    {
-      type: 'checkbox',
-      label: 'Accept policy',
-      name: 'acceptPolicy',
-    },
-    {
-      // TODO: due that MUI Select(input inside component) is not aria-label friendly, also pass test-id is not possible, i need to find a way to test it.
-      type: 'select',
-      label: 'Choose sex',
-      name: 'sex',
-      options: [
-        { label: 'Option 1', value: 'option1' },
-        { label: 'Option 2', value: 'option2' },
-        { label: 'Option 3', value: 'option3' },
-      ],
-    },
-  ];
+  const config: IFormField = {
+    title: 'Test Form',
+    saveButtonLabel: 'Save',
+    config: [
+      {
+        type: 'text',
+        label: 'First Name',
+        variant: 'standard',
+        name: 'firstName',
+      },
+      {
+        type: 'text',
+        label: 'Last Name',
+        variant: 'standard',
+        name: 'lastName',
+      },
+      {
+        type: 'number',
+        label: 'Age',
+        variant: 'standard',
+        name: 'age',
+      },
+      {
+        type: 'checkbox',
+        label: 'Accept policy',
+        name: 'acceptPolicy',
+      },
+    ],
+  }
+  // eslint-disable-next-line no-undef
   const setup = (jsx: JSX.Element) => ({
     user: userEvent,
     ...render(jsx),
@@ -45,14 +42,17 @@ describe('GenericForm', () => {
 
   it('Renders a message when config is an empty array', () => {
     const mockSave = jest.fn();
-    render(<GenericForm config={[]} title="Test Form" onSubmit={mockSave} />);
+  render(<GenericForm formConfig={{
+      title: 'Test Form',
+      saveButtonLabel: 'Save',
+      config: []}} onSubmit={mockSave} />);
 
     expect(screen.getByText('Form not yet configured')).toBeInTheDocument();
   });
   it('Renders the title when provided', () => {
     const mockSave = jest.fn();
     render(
-      <GenericForm config={config} title="Test Form" onSubmit={mockSave} />
+      <GenericForm formConfig={config} onSubmit={mockSave} />
     );
     expect(
       screen.getByRole('heading', { name: 'Test Form' })
@@ -62,7 +62,7 @@ describe('GenericForm', () => {
   it('Renders the form with expected fields', () => {
     const mockSave = jest.fn();
     render(
-      <GenericForm config={config} title="Test Form" onSubmit={mockSave} />
+      <GenericForm formConfig={config} onSubmit={mockSave} />
     );
     const firstNameInput = screen.getByRole('textbox', { name: 'First Name' });
     const lastNameInput = screen.getByRole('textbox', { name: 'Last Name' });
@@ -79,7 +79,7 @@ describe('GenericForm', () => {
   it('Calls onSubmit with form data when submit button is clicked', async () => {
     const mockSave = jest.fn();
     const { user } = setup(
-      <GenericForm config={config} title="Test Form" onSubmit={mockSave} />
+      <GenericForm formConfig={config} onSubmit={mockSave} />
     );
 
     const firstNameInput = screen.getByRole('textbox', { name: 'First Name' });

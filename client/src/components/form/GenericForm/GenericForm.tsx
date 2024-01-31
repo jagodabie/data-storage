@@ -5,9 +5,7 @@ import { IGenericFormProps } from './GenericFrom.types';
 import { FormWrapper, Form } from '.';
 
 const GenericForm: React.FC<IGenericFormProps> = ({
-  saveButtonLabel = 'Save',
-  config,
-  title,
+  formConfig: { title, config, saveButtonLabel },
   onSubmit,
 }) => {
   const { handleSubmit, control } = useForm();
@@ -17,22 +15,22 @@ const GenericForm: React.FC<IGenericFormProps> = ({
       {config?.length ? (
         <Form onSubmit={handleSubmit(data => onSubmit(data))}>
           {!!title && <h4>{title}</h4>}
-          {config.map(configItem => (
+          {config?.map((formConfigItem) => (
             <Controller
-              key={configItem.name}
+              key={formConfigItem.name}
               render={({ field: { onChange, value } }) => (
                 <ComponentMapper
                   onChange={onChange}
                   value={value || ''}
-                  label={configItem.label}
-                  name={configItem.name}
-                  type={configItem.type ?? ''}
-                  multiline={configItem?.multiline}
-                  radiosValues={configItem.radiosValues ?? []}
-                  options={configItem.options ?? []}
+                  label={formConfigItem.label}
+                  name={formConfigItem.name}
+                  type={formConfigItem.type ?? ''}
+                  multiline={formConfigItem?.multiline}
+                  radiosValues={formConfigItem.radiosValues ?? []}
+                  options={formConfigItem.options ?? []}
                 />
               )}
-              name={configItem.name}
+              name={formConfigItem.name}
               control={control}
             />
           ))}

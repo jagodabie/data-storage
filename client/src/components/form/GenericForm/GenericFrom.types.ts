@@ -20,18 +20,20 @@ export interface FormsElementProps {
 }
 
 export interface IFormField {
-  name: string;
-  type?: fieldType;
-  variant?: string;
-  label?: string;
-  radiosValues?: string[];
-  options?: Option[];
-  multiline?: boolean;
-}
-export interface IGenericFormProps {
-  config: IFormField[];
   title?: string;
   saveButtonLabel?: string;
-  // eslint-disable-next-line no-unused-vars
+  config:{
+    name: string;
+    type?: fieldType;
+    variant?: string;
+    label?: string;
+    radiosValues?: string[];
+    options?: Option[];
+    multiline?: boolean;
+  }[];
+}
+export interface IGenericFormProps {
+  formConfig: IFormField;
+    // eslint-disable-next-line no-unused-vars
   onSubmit: (data: unknown) => void;
 }
