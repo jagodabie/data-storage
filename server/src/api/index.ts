@@ -1,7 +1,7 @@
 import express from 'express';
 
 import MessageResponse from '../interfaces/MessageResponse';
-import emojis from './emojis';
+import formConfigs from './formConfig/formConfigs.route';
 
 const router = express.Router();
 
@@ -11,6 +11,6 @@ router.get<{}, MessageResponse>('/', (req, res) => {
   });
 });
 
-router.use('/emojis', emojis);
+router.use('/form-configs', formConfigs);
 
 export default router;
