@@ -4,7 +4,7 @@ import { FormConfigs } from '../src/api/formConfig/formConfig.model';
 
 beforeAll(async () => {
   try {
-    FormConfigs.drop();
+    await FormConfigs.drop();
   } catch (error) {}
 });
 
